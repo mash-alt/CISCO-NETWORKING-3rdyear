@@ -1,0 +1,65 @@
+Q1: What are the VLAN names and numbers to configure?
+A1:
+
+VLAN 10: Admin
+VLAN 20: Accounts
+VLAN 30: HR
+VLAN 40: Voice
+VLAN 99: Management
+VLAN 100: Native
+Q2: What are the port assignments for SWB and SWC?
+A2:
+
+SWB:
+F0/1 → VLAN 10
+F0/2 → VLAN 20
+F0/3 → VLAN 30
+SWC:
+F0/1 → VLAN 10
+F0/2 → VLAN 20
+F0/3 → VLAN 30
+F0/4 → VLAN 10 (Voice VLAN 40 also assigned)
+Q3: What is the correct command to configure a port for the voice VLAN and trust CoS?
+A3:
+
+Shell
+interface f0/4
+mls qos trust cos
+switchport voice vlan 40
+Q4: How do you configure the management interface and assign IP addresses?
+A4:
+
+Shell
+interface vlan 99
+ip address <address> 255.255.255.0
+no shutdown
+(Replace <address> with the correct IP from the table for each switch.)
+
+Q5: How do you configure a static trunk and disable DTP?
+A5:
+
+Shell
+interface g0/1
+switchport mode trunk
+switchport nonegotiate
+switchport trunk native vlan 100
+Q6: How do you configure dynamic trunking on SWA and static trunking on SWC?
+A6:
+
+SWA:
+Shell
+interface g0/2
+switchport mode dynamic desirable
+switchport trunk native vlan 100
+SWC:
+Shell
+interface g0/2
+switchport mode trunk
+switchport trunk native vlan 100
+Q7: What should you do if there’s a native VLAN mismatch?
+A7:
+Configure all trunks to use the same native VLAN (VLAN 100).
+
+Q8: Should the switches be able to ping each other via the management VLAN?
+A8:
+No, the switches should not be able to ping each other.

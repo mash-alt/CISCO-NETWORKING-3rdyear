@@ -1,0 +1,63 @@
+Part 1: Observe Broadcast Traffic in a VLAN Implementation
+Step 1: Ping from PC1 to PC6
+Were the pings successful? Explain.
+
+No, the pings were not successful because PC1 is on a different VLAN than PC6, which prevents communication between them as they are separated logically.
+
+Look at the Simulation Panel, where did S3 send the packet after receiving it?
+
+S3 sent it to PC4 because PC4 is on the same VLAN as PC1.
+
+Step 2: Ping from PC1 to PC4
+Were the pings successful? Explain.
+
+Yes, because PC1 and PC4 both belong to VLAN 10. PC4 replies to the ARP request, so PC1 is able to complete the ping.
+
+When the packet reached S1, why does it also forward the packet to PC7?
+
+Because PC7 is also in VLAN 10, and switches forward ARP requests to any device connected to VLAN 10.
+
+Part 2: Broadcast Traffic without VLANs
+Step 1: Clear configurations and delete VLAN database
+What command is used to delete the startup configuration of the switches?
+
+erase startup-config
+
+Where is the VLAN file stored in the switches?
+
+flash:vlan.dat
+
+What command deletes the VLAN file stored in the switches?
+
+delete vlan.dat
+
+Step 2: Reload the switches
+What command reloads the switches?
+
+reload
+
+Reflection Questions & Answers
+1. If a PC in VLAN 10 sends a broadcast message, which devices receive it?
+
+All devices that are on VLAN 10
+
+2. If a PC in VLAN 20 sends a broadcast message, which devices receive it?
+
+All devices that are on VLAN 20
+
+3. If a PC in VLAN 30 sends a broadcast message, which devices receive it?
+
+All devices that are on VLAN 30
+
+4. What happens to a frame sent from a PC in VLAN 10 to a PC in VLAN 30?
+
+It will be dropped.
+
+5. In terms of ports, what are the collision domains on the switch?
+
+Each port is a separate collision domain.
+
+6. In terms of ports, what are the broadcast domains on the switch?
+
+They are divided by the number of VLANs in the switch.
+

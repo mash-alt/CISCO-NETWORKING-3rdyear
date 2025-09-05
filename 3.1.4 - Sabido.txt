@@ -1,0 +1,32 @@
+Reflection Questions & Answers
+1. If a PC in VLAN 10 sends a broadcast message, which devices receive it?
+
+All end devices on VLAN 10
+
+2. If a PC in VLAN 20 sends a broadcast message, which devices receive it?
+
+All end devices on VLAN 20
+
+3. If a PC in VLAN 30 sends a broadcast message, which devices receive it?
+
+All end devices on VLAN 30
+
+4. What happens to a frame sent from a PC in VLAN 10 to a PC in VLAN 30?
+
+It will be dropped because they are not on the same VLAN.
+
+5. Which ports on the switch light up if a PC connected to port 11 sends a unicast message to a PC connected to port 13?
+
+Ports 11 and 13 will light up.
+
+6. Which ports on the switch light if a PC connected to port 2 sends a unicast message to a PC connected to port 23?
+
+The packet will be dropped.
+
+7. In terms of ports, what are the collision domains on the switch?
+
+Each port is its own collision domain.
+
+8. In terms of ports, what are the broadcast domains on the switch?
+
+Each VLAN is its own broadcast domain.

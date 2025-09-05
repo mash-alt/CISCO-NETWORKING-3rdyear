@@ -1,0 +1,48 @@
+Part 1: Verify VLAN Configuration
+Q: What VLANs are configured on the switches?
+A: VLANs 99 and 999 are configured on all the switches.
+
+Part 2: Create Additional VLANs on S2 and S3
+Q: In addition to the default VLANs, which VLANs are configured on S2?
+A: VLAN 10 (Red), VLAN 20 (Blue), VLAN 30 (Yellow), VLAN 99 (Management), and VLAN 999 (Native).
+
+Part 3: Assign VLANs to Ports
+Q: Was the ping successful? Explain.
+A: No, the pings failed because the ports between the switches are in VLAN 1 and PC1 and PC6 are in VLAN 10.
+
+Part 4: Configure Trunks on S1, S2, and S3
+Q: What will be the result of trunk negotiation between S1 and S2?
+A: Trunk link has been established between S1 and S2.
+
+Q: What is the mode and status for this port (S2 G0/1)?
+A: Mode: Auto | Status: trunking
+
+Q: What is the native VLAN for these trunks currently?
+A: VLAN 1
+
+Q: What messages did you receive on S1? How would you correct it?
+A: Received native VLAN mismatch messages. To correct, configure VLAN 999 as the native VLAN on S2 and S3.
+
+Part 5: Reconfigure Trunk on S3
+Q: What is the mode and encapsulation on G0/2?
+A: Mode: on | Encapsulation: 802.1q
+
+Q: What is the mode and encapsulation on G0/2 after the change?
+A: Mode: on | Encapsulation: 802.1q
+
+Q: What is the ‘Negotiation of Trunking’ state displayed?
+A: Off
+
+Part 6: Verify End-to-End Connectivity
+Q: From PC1 ping PC6.
+A: Successful
+
+Q: From PC2 ping PC5.
+A: Successful
+
+Q: From PC3 ping PC4.
+A: Successful
+
+Additional Troubleshooting
+Q: Why was the ping unsuccessful (before correcting config)?
+A: The ping was unsuccessful because the VLAN on S1 was not set up correctly (VLANs 10/20/30 missing).
